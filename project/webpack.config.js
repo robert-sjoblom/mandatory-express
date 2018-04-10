@@ -1,16 +1,16 @@
-const path                  = require('path');
-const CleanWebpackPlugin    = require('clean-webpack-plugin');
+const path                  = require("path");
+const CleanWebpackPlugin    = require("clean-webpack-plugin");
 
 module.exports = {
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
 
-    entry: './src/client/index.js',
+    entry: "./src/client/index.js",
 
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public/build'),
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "public/build"),
 
-        publicPath: 'build'
+        publicPath: "build"
     },
 
     module: {
@@ -18,28 +18,28 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: "babel-loader"
             }
         ]
     },
 
     resolve: {
-        extensions: ['.js']
+        extensions: [".js"]
     },
 
-    plugins: [
-        new CleanWebpackPlugin(['public/build'])
+    plugins: [
+        new CleanWebpackPlugin(["public/build"])
     ],
 
     devServer: {
         port: 3000,
-        contentBase: './public',
+        contentBase: "./public",
         compress: true,
         historyApiFallback: true,
 
         proxy: {
-            '/api': {
-                target: 'http://localhost:8888',
+            "/api": {
+                target: "http://localhost:8888",
                 secure: false
             }
         }
