@@ -57,6 +57,7 @@ class mockSource {
             found ? resolve(found) : reject();
         });
     }
+    
     addPost({ userId, title, body }) {
         const lastIndex = posts.length - 1;
         const lastId = posts[lastIndex].id;
