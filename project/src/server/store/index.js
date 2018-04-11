@@ -26,8 +26,8 @@ class Store {
     getPost(id) {
         return this.source.getPost(id);
     }
-    addPost(productData) {
-        return this.source.addPost(productData);
+    addPost(post) {
+        return this.source.addPost(post);
     }
     deletePost(id) {
         return this.source.deletePost(id);

@@ -46,7 +46,6 @@ class EdumentSource {
                 if (!response.ok) {
                     throw `Post with ID ${id} not found`;
                 }
-
                 return response.json();
             })
             .then(post => post);
@@ -64,15 +63,14 @@ class EdumentSource {
     }
 
     deletePost(id) {
-        return fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
             method: "DELETE"
         })
             .then(response => {
                 if (!response.ok) {
                     throw "Couldn't Delete";
                 }
-
-                return response.json();
+                return {id};
             });
     }
 }

@@ -29,7 +29,6 @@ class mockSource {
     getProducts() {
         return Promise.resolve(products);
     }
-
     getProduct(id) {
         return new Promise((resolve, reject) => {
             const found = products.find(product => product.id === id);
@@ -37,7 +36,6 @@ class mockSource {
         });
 
     }
-
     addProduct({ category, name }) {
         const lastIndex = products.length - 1;
         const lastId = products[lastIndex].id;
@@ -47,7 +45,6 @@ class mockSource {
             name
         };
         products.push(newProduct);
-
         return Promise.resolve(newProduct);
     }
 
@@ -71,14 +68,12 @@ class mockSource {
         };
         posts.push(newPost);
         return Promise.resolve(newPost);
-
     }
     deletePost(id) {
         return new Promise((resolve, reject) => {
             const found = posts.find(post => post.id === id);
             if (found) {
                 posts.splice(posts.indexOf(found), 1);
-                console.log(posts);
                 resolve(found);
             } else {
                 reject( { error: "No such id."} );

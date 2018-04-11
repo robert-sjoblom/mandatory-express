@@ -9,7 +9,6 @@ const route = express.Router();
 route.get("/posts", (req, res) => {
     store.getPosts()
         .then(posts => res.json({ posts }));
-
 });
 
 route.get("/posts/:id", (req, res) => {
@@ -25,6 +24,7 @@ route.get("/posts/:id", (req, res) => {
 
 route.post("/posts", (req, res) => {
     const post = req.body;
+    console.log(post);
     store.addPost(post)
         .then(newPost => res.json({ newPost }));
 });
@@ -38,6 +38,6 @@ route.delete("/posts", (req, res) => {
                 { error }
             );
         });
-})
+});
 
 module.exports = route;
