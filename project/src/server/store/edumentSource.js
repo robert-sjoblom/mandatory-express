@@ -70,7 +70,7 @@ class EdumentSource {
                 if (!response.ok) {
                     throw "Couldn't Delete";
                 }
-                return {id};
+                return {id}; // {hello} -> {hello: hello} { id: id }
             });
     }
 }
