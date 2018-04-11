@@ -1,10 +1,6 @@
 const express = require("express");
-
 const store = require("../store");
-
 const route = express.Router();
-
-// GET /api/products
 
 route.get("/posts", (req, res) => {
     store.getPosts()

@@ -57,7 +57,7 @@ class mockSource {
             found ? resolve(found) : reject();
         });
     }
-    
+
     addPost({ userId, title, body }) {
         const lastIndex = posts.length - 1;
         const lastId = posts[lastIndex].id;
@@ -72,13 +72,8 @@ class mockSource {
     }
     deletePost(id) {
         return new Promise((resolve, reject) => {
-            const found = posts.find(post => post.id === id);
-            if (found) {
-                posts.splice(posts.indexOf(found), 1);
-                resolve(found);
-            } else {
-                reject( { error: "No such id."} );
-            }
+            const index = posts.findIndex(item => item.id === id);
+            (index !== -1) ? resolve(posts.splice(index, 1)[0]) : reject({ error: "No such id" });
         });
     }
 }
