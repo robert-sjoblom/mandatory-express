@@ -25,7 +25,7 @@ route.get("/products/:id", (req, res) => {
 });
 
 route.post("/products", (req, res) => {
-    const productData = JSON.parse(req.body);
+    const productData = req.body;
     
     store.addProduct(productData)
         .then(newProduct => res.json({ newProduct }));
