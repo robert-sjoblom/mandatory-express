@@ -1,18 +1,18 @@
-const express = require('express');
+const express = require("express");
 
-const store = require('../store');
+const store = require("../store");
 
 const route = express.Router();
 
 // GET /api/products
 
-route.get('/products', (req, res) => {
+route.get("/products", (req, res) => {
 
     store.getProducts()
         .then(products => res.json({ products }));
-})
+});
 
-route.get('/products/:id', (req, res) => {
+route.get("/products/:id", (req, res) => {
     const productId = Number(req.params.id);
     
     store.getProduct(productId)
@@ -22,14 +22,14 @@ route.get('/products/:id', (req, res) => {
                 { error }
             );
         });
-})
+});
 
-route.post('/products', (req, res) => {
+route.post("/products", (req, res) => {
     const productData = JSON.parse(req.body);
     
     store.addProduct(productData)
         .then(newProduct => res.json({ newProduct }));
 
-})
+});
 
 module.exports = route;
